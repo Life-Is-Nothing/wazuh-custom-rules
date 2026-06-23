@@ -1,0 +1,18 @@
+<!-- Privilege Escalation Rules - ibramoha2 -->
+<group name="privilege_escalation,">
+
+  <rule id="100200" level="13">
+    <if_sid>5402</if_sid>
+    <description>Execution sudo par un utilisateur inhabituel</description>
+    <mitre><id>T1548</id></mitre>
+    <group>sudo,</group>
+  </rule>
+
+  <rule id="100201" level="15">
+    <if_sid>5901</if_sid>
+    <description>Modification des privileges sudoers</description>
+    <mitre><id>T1548.003</id></mitre>
+    <group>sudo,system_integrity,</group>
+  </rule>
+
+</group>
