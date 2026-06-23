@@ -1,0 +1,28 @@
+<!-- SSH Security Rules - ibramoha2 -->
+<group name="ssh_security,">
+
+  <!-- Brute force SSH -->
+  <rule id="100100" level="12" frequency="6" timeframe="60">
+    <if_matched_sid>5710</if_matched_sid>
+    <description>Brute-force SSH: multiple echecs depuis la meme IP</description>
+    <mitre><id>T1110</id></mitre>
+    <group>brute_force,authentication_failures,</group>
+  </rule>
+
+  <!-- Connexion root reussie -->
+  <rule id="100101" level="14">
+    <if_sid>5715</if_sid>
+    <match>root</match>
+    <description>Connexion SSH root reussie - action critique</description>
+    <mitre><id>T1078</id></mitre>
+    <group>authentication_success,</group>
+  </rule>
+
+  <!-- Nouveau pays de connexion -->
+  <rule id="100102" level="10">
+    <if_sid>5715</if_sid>
+    <description>Connexion SSH reussie depuis IP externe</description>
+    <group>authentication_success,</group>
+  </rule>
+
+</group>
